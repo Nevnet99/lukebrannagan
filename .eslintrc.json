@@ -1,3 +1,4 @@
 {
-  "extends": ["next/core-web-vitals", "wesbos/typescript"]
+  "extends": ["next/core-web-vitals", "wesbos/typescript"],
+  "ignorePatterns": ["postcss.config.js", "tailwind.config.js"]
 }
