@@ -1,5 +1,7 @@
 ## www.lukebrannagan.com
 
+If you want to see the current progress and what im planning to do next you can check out the TODO.md file.
+
 This is the source code for my personal website, [www.lukebrannagan.com](https://lukebrannagan.com).
 
 
