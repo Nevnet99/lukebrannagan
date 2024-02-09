@@ -1,13 +1,17 @@
 'use client';
 
 import { gql, useQuery } from '@apollo/client';
-import { StoryblokComponent, useStoryblokState } from '@storyblok/react';
-import { useEffect } from 'react';
+import {
+  ISbStoryData,
+  StoryblokComponent,
+  useStoryblokState,
+} from '@storyblok/react';
+import { PageStoryblok } from '../../types/component-types-sb';
 
 export default function Home() {
-  const { data } = useQuery(query);
+  const { data } = useQuery<PageStoryblok>(query);
 
-  const story = useStoryblokState(data?.PageItem);
+  const story: ISbStoryData<void> | null = useStoryblokState(data?.PageItem);
 
   if (!story?.content) {
     return <div>Loading...</div>;
@@ -23,6 +27,9 @@ const query = gql`
     PageItem(id: "home") {
       content {
         components
+        component
+        _uid
+        _editable
       }
     }
   }
