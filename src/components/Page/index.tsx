@@ -1,8 +1,4 @@
-import {
-  storyblokEditable,
-  StoryblokComponent,
-  ISbStoryData,
-} from '@storyblok/react/rsc';
+import { storyblokEditable, StoryblokComponent } from '@storyblok/react/rsc';
 import { PageStoryblok } from '../../types/component-types-sb';
 
 export const Page = ({ blok }: { blok: PageStoryblok }) => {

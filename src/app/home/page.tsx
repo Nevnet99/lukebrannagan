@@ -9,15 +9,13 @@ import {
 import { PageStoryblok } from '../../types/component-types-sb';
 
 export default function Home() {
-  const { data } = useQuery<PageStoryblok>(query);
+  const { data } = useQuery<{ PageItem: ISbStoryData<PageStoryblok> }>(query);
 
-  const story: ISbStoryData<void> | null = useStoryblokState(data?.PageItem);
+  const story = useStoryblokState(data?.PageItem || null);
 
   if (!story?.content) {
     return <div>Loading...</div>;
   }
-
-  console.log(story, 'Story');
 
   return <StoryblokComponent blok={story.content} />;
 }
@@ -27,9 +25,6 @@ const query = gql`
     PageItem(id: "home") {
       content {
         components
-        component
-        _uid
-        _editable
       }
     }
   }
