@@ -25,6 +25,9 @@ const query = gql`
     PageItem(id: "home") {
       content {
         components
+        component
+        _uid
+        _editable
       }
     }
   }

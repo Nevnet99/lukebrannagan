@@ -13,6 +13,8 @@ export default function Home() {
 
   const story = useStoryblokState(data?.PageItem || null);
 
+  console.log(story);
+
   if (!story?.content) {
     return <div>Loading...</div>;
   }
@@ -25,6 +27,9 @@ const query = gql`
     PageItem(id: "home") {
       content {
         components
+        component
+        _uid
+        _editable
       }
     }
   }

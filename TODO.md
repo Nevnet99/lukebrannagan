@@ -1,4 +1,4 @@
-- Fix types for the fetch page queries need to look up how this works with Storyblok
+- [x] Fix types for the fetch page queries need to look up how this works with Storyblok
 - Figure out how the root page works with Storyblok and how to fix the preview instead of using /home
 - Implement Vitest as a testing framework
 - Implement a Github pipelines
