@@ -49,7 +49,8 @@ export const Typography = <
     <Component
       className={clsx({
         className,
-        [typographyStyles[Component as TAllowedTypographyTypes]]: true,
+        [typographyStyles[Component as TAllowedTypographyTypes]]:
+          true && !variant,
         // ? variant overrides the styles via the as prop in case you want a h1 with p styles
         [typographyStyles[variant as TAllowedTypographyTypes]]: !!variant,
       })}

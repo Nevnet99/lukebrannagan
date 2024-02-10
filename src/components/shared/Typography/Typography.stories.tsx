@@ -43,7 +43,7 @@ export const GeneralUsage: Story = {};
 
 export const AllVariants: Story = {
   render: ({ children }) => (
-    <div>
+    <div className="flex flex-col gap-8">
       {options.map((variant) => (
         <Typography key={variant} as={variant as TAllowedTypographyTypes}>
           {variant}: {children}
@@ -51,4 +51,11 @@ export const AllVariants: Story = {
       ))}
     </div>
   ),
+};
+
+export const PolymorphismWithVariant: Story = {
+  args: {
+    as: 'h3',
+    variant: 'h1',
+  },
 };
