@@ -20,6 +20,7 @@
   "dependencies": {
     "@apollo/client": "^3.9.4",
     "@storyblok/react": "^3.0.8",
+    "clsx": "^2.1.0",
     "eslint-config-wesbos": "^4.0.1",
     "graphql": "^16.8.1",
     "next": "14.1.0",
