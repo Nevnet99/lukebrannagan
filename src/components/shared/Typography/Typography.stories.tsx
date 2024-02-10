@@ -41,11 +41,27 @@ type Story = StoryObj<typeof meta>;
 
 export const GeneralUsage: Story = {};
 
-export const AllVariants: Story = {
+export const AllVariantsManrope: Story = {
   render: ({ children }) => (
     <div className="flex flex-col gap-8">
       {options.map((variant) => (
         <Typography key={variant} as={variant as TAllowedTypographyTypes}>
+          {variant}: {children}
+        </Typography>
+      ))}
+    </div>
+  ),
+};
+
+export const AllVariantsFjalla: Story = {
+  render: ({ children }) => (
+    <div className="flex flex-col gap-8">
+      {options.map((variant) => (
+        <Typography
+          key={variant}
+          as={variant as TAllowedTypographyTypes}
+          font="fjalla"
+        >
           {variant}: {children}
         </Typography>
       ))}

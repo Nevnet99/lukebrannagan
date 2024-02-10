@@ -18,6 +18,10 @@ export type TTypographyProps<E extends React.ElementType> = {
    * a h1 with p styles
    */
   variant?: E;
+  /**
+   * The font type you want to use for the typography component
+   */
+  font?: 'manrope' | 'fjalla';
   children: React.ReactNode;
 };
 
@@ -42,6 +46,7 @@ export const Typography = <
   className,
   variant,
   children,
+  font = 'manrope',
 }: TTypographyProps<E>) => {
   const Component = as || 'p';
 
@@ -53,6 +58,8 @@ export const Typography = <
           true && !variant,
         // ? variant overrides the styles via the as prop in case you want a h1 with p styles
         [typographyStyles[variant as TAllowedTypographyTypes]]: !!variant,
+        'font-manrope': font === 'manrope',
+        'font-fjalla': font === 'fjalla',
       })}
     >
       {children}

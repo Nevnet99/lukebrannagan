@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+// eslint-disable-next-line camelcase
+import { Manrope, Fjalla_One } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@components/Providers';
 import { Navigation } from '@components/Navigation';
+import clsx from 'clsx';
 
-const inter = Inter({ subsets: ['latin'] });
+const manrope = Manrope({ subsets: ['latin'] });
+
+const fjallaOne = Fjalla_One({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +23,7 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={clsx(fjallaOne.className, manrope.className)}>
           <Navigation />
           {children}
         </body>

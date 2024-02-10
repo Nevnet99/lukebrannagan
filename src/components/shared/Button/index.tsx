@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Typography } from '../Typography';
 
 export const ButtonDefaultType = 'p' as const;
 export type TButtonDefaultType = typeof ButtonDefaultType;
@@ -63,7 +64,7 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
       })}
       {...rest}
     >
-      {children}
+      <Typography as="span">{children}</Typography>
     </Component>
   );
 };
