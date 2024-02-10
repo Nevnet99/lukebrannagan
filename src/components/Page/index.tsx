@@ -1,7 +1,11 @@
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react/rsc';
 import { PageStoryblok } from '../../types/component-types-sb';
 
-export const Page = ({ blok }: { blok: PageStoryblok }) => {
+export type TPageProps = {
+  blok: PageStoryblok;
+};
+
+export const Page = ({ blok }: TPageProps) => {
   const { components } = blok;
 
   if (!components) {

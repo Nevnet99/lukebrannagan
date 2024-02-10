@@ -6,9 +6,12 @@ import { Providers } from '@components/Providers';
 import { Navigation } from '@components/Navigation';
 import clsx from 'clsx';
 
-const manrope = Manrope({ subsets: ['latin'] });
-
-const fjallaOne = Fjalla_One({ subsets: ['latin'], weight: '400' });
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
+const fjallaOne = Fjalla_One({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-fjalla',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,7 +26,7 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body className={clsx(fjallaOne.className, manrope.className)}>
+        <body className={clsx(manrope.variable, fjallaOne.variable)}>
           <Navigation />
           {children}
         </body>

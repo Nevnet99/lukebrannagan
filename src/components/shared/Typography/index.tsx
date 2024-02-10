@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 export const TypographyDefaultType = 'p' as const;
 export type TTypographyDefaultType = typeof TypographyDefaultType;
+export type TAllowedTypographyTypes = keyof typeof typographyStyles;
 
 export type TTypographyProps<E extends React.ElementType> = {
   /**
@@ -17,7 +18,7 @@ export type TTypographyProps<E extends React.ElementType> = {
    * The variant of the typography component this will override the styles for the as so you can have
    * a h1 with p styles
    */
-  variant?: E;
+  variant?: TAllowedTypographyTypes;
   /**
    * The font type you want to use for the typography component
    */
@@ -33,11 +34,11 @@ const typographyStyles = {
   h5: 'text-xl',
   h6: 'text-lg',
   p: 'text-base',
+  'body-large': 'text-lg',
+  body: 'text-base',
   small: 'text-sm',
   span: 'text-base',
 };
-
-export type TAllowedTypographyTypes = keyof typeof typographyStyles;
 
 export const Typography = <
   E extends React.ElementType = TTypographyDefaultType,

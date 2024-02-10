@@ -3,8 +3,13 @@ import type { Preview } from "@storybook/react";
 import React from "react"
 import clsx from "clsx";
 import { Manrope, Fjalla_One } from 'next/font/google';
-const manrope = Manrope({ subsets: ['latin'] });
-const fjallaOne = Fjalla_One({ subsets: ['latin'], weight: '400'});
+
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
+const fjallaOne = Fjalla_One({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-fjalla',
+});
 
 
 const preview: Preview = {
@@ -22,7 +27,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div className={clsx(manrope.className, fjallaOne.className)}>
+      <div className={clsx(manrope.variable, fjallaOne.variable)}>
         <Story />
       </div>
     ),

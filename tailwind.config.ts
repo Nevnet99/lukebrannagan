@@ -9,9 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', 'sans-serif'],
-        manrope: ['Manrope', 'sans-serif'],
-        fjalla: ['Fjalla One', 'serif'],
+        manrope: ['var(--font-manrope)', 'sans-serif'],
+        fjalla: ['var(--font-fjalla)', 'sans-serif'],
       },
     },
   },
