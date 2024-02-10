@@ -13,6 +13,16 @@ const config: Config = {
         fjalla: ['var(--font-fjalla)', 'sans-serif'],
       },
     },
+    fontSize: {
+      '5xl': '11.088rem',
+      '4xl': '6.856rem',
+      '3xl': '4.238rem',
+      '2xl': '2.619rem',
+      xl: '1.619rem',
+      lg: '1.619rem',
+      base: '1rem',
+      small: '0.619rem',
+    },
   },
   plugins: [],
 };

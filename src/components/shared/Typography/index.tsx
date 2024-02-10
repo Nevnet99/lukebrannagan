@@ -35,7 +35,7 @@ const typographyStyles = {
   h6: 'text-lg',
   p: 'text-base',
   'body-large': 'text-lg',
-  body: 'text-base',
+  'body-regular': 'text-base',
   small: 'text-sm',
   span: 'text-base',
 };

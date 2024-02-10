@@ -2,7 +2,19 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { TAllowedTypographyTypes, Typography } from '.';
 
-const options = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'small', 'span'];
+const options = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'p',
+  'small',
+  'span',
+  'body-large',
+  'body-regular',
+];
 /**
  * Typography component for use of all typography in the app this allows for easy movement over
  * to a design system in the future.
@@ -45,7 +57,7 @@ export const AllVariantsManrope: Story = {
   render: ({ children }) => (
     <div className="flex flex-col gap-8">
       {options.map((variant) => (
-        <Typography key={variant} as={variant as TAllowedTypographyTypes}>
+        <Typography key={variant} variant={variant as TAllowedTypographyTypes}>
           {variant}: {children}
         </Typography>
       ))}
@@ -59,7 +71,7 @@ export const AllVariantsFjalla: Story = {
       {options.map((variant) => (
         <Typography
           key={variant}
-          as={variant as TAllowedTypographyTypes}
+          variant={variant as TAllowedTypographyTypes}
           font="fjalla"
         >
           {variant}: {children}
@@ -72,6 +84,6 @@ export const AllVariantsFjalla: Story = {
 export const PolymorphismWithVariant: Story = {
   args: {
     as: 'h3',
-    variant: 'h1',
+    variant: 'h4',
   },
 };
