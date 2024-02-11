@@ -1,3 +1,6 @@
+import { PageSection } from '@components/shared/PageSection';
 import React from 'react';
 
-export const BentoFeature = () => <div className="text-white">Bento</div>;
+export const BentoFeature = () => (
+  <PageSection className="text-white">Bento</PageSection>
+);

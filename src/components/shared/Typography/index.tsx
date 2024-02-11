@@ -27,7 +27,7 @@ export type TTypographyProps<E extends React.ElementType> = {
 };
 
 const typographyStyles = {
-  h1: 'text-5xl',
+  h1: 'text-4xl md:text-5xl',
   h2: 'text-4xl',
   h3: 'text-3xl',
   h4: 'text-2xl',
@@ -54,7 +54,7 @@ export const Typography = <
   return (
     <Component
       className={clsx({
-        className,
+        [className as string]: !!className,
         [typographyStyles[Component as TAllowedTypographyTypes]]:
           true && !variant,
         // ? variant overrides the styles via the as prop in case you want a h1 with p styles
