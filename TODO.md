@@ -17,7 +17,7 @@
 - SSR render the pages to stop the loading state of the content of the page from the CMS.
 
 ## Components TODO
-- Hero 
+- [1/2] Hero 
 - Animated background 
 - Footer
 - Buttons 
