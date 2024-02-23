@@ -27,28 +27,21 @@ interface TButtonProps<E extends React.ElementType> {
    * Polymorphic prop for the Typography component allowing you to choose valid HTML text elements
    */
   as?: E;
-  size?: 'small' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'nav';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   className?: string;
   children: React.ReactNode;
 }
 
-const sizes = {
-  small: 'px-2 py-1',
-  medium: 'px-4 py-2',
-  large: 'px-6 py-3',
-};
-
 const variants = {
-  primary: 'bg-blue-500 text-white',
-  secondary: 'bg-gray-200 text-gray-700',
-  nav: 'text-white',
+  primary: 'bg-primary',
+  secondary: 'bg-secondary',
+  tertiary: 'bg-tertiary',
+  quaternary: 'bg-quaternary',
 };
 
 export const Button = <E extends React.ElementType = TButtonDefaultType>({
   as,
   className,
-  size = 'medium',
   variant = 'primary',
   children,
   ...rest
@@ -57,14 +50,18 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
 
   return (
     <Component
-      className={clsx({
-        className,
-        [sizes[size]]: true,
-        [variants[variant]]: true,
-      })}
+      className={clsx(
+        'px-8 py-2 rounded-full flex justify-center drop-shadow-neo-brutalist',
+        {
+          className,
+          [variants[variant]]: true,
+        },
+      )}
       {...rest}
     >
-      <Typography as="span">{children}</Typography>
+      <Typography as="span" variant="body-large">
+        {children}
+      </Typography>
     </Component>
   );
 };

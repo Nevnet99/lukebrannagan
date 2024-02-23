@@ -1,7 +1,8 @@
 import { PageSection } from '@components/shared/PageSection';
 import { Typography } from '@components/shared/Typography';
 import React from 'react';
-import { InView } from '@components/shared/Animations/InView';
+import { Logo } from '@components/Logo';
+import { RichText } from '@components/shared/RichText';
 import { HeroStoryblok } from '../../types/component-types-sb';
 
 export type THeroProps = {
@@ -9,19 +10,20 @@ export type THeroProps = {
 };
 
 export const Hero = ({ blok }: THeroProps) => {
-  const { Title: title, Subtext: subText } = blok;
+  const { copy1, copy2 } = blok;
+
   return (
-    <PageSection className="relative flex flex-col align-center justify-center text-center mb-28 mt-28 max-w-5xl mx-auto ">
-      <div className="z-[-1] absolute h-64 w-64 rounded-full bottom-0 right-72 translate-y-[-50%] bg-teal-300 blur-3xl" />
-      <div className="z-[-1] absolute h-64 w-64 rounded-full bottom-0 right-96 bg-pink-300 blur-3xl" />
-      <InView>
-        <Typography className="mb-5" as="h1" font="fjalla">
-          {title}
+    <PageSection className="flex items-center flex-col border-y-0">
+      <Logo />
+      <div className="w-[80%] mx-auto flex flex-col md:flex-row mt-36 justify-between">
+        <Typography className="mb-10 md:mb-0 md:w-[50%]" variant="body-large">
+          <RichText document={copy1} />
         </Typography>
-      </InView>
-      <InView>
-        <Typography variant="body-large">{subText}</Typography>
-      </InView>
+
+        <div className="md:w-[45%]">
+          <RichText document={copy2} />
+        </div>
+      </div>
     </PageSection>
   );
 };

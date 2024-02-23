@@ -17,7 +17,11 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
-  return <StoryblokComponent blok={story.content} />;
+  return (
+    <div>
+      <StoryblokComponent blok={story.content} />
+    </div>
+  );
 }
 
 const query = gql`

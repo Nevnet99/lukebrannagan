@@ -5,6 +5,8 @@ import './globals.css';
 import { Providers } from '@components/Providers';
 import { Navigation } from '@components/Navigation';
 import clsx from 'clsx';
+import { PageSection } from '@components/shared/PageSection';
+import { Footer } from '@components/Footer';
 
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
 const fjallaOne = Fjalla_One({
@@ -28,7 +30,8 @@ export default function RootLayout({
       <html lang="en">
         <body className={clsx(manrope.variable, fjallaOne.variable)}>
           <Navigation />
-          {children}
+          <main>{children}</main>
+          <Footer />
         </body>
       </html>
     </Providers>

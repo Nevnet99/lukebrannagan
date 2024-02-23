@@ -4,36 +4,31 @@ import Link from 'next/link';
 import React from 'react';
 import clsx from 'clsx';
 import { Button } from '@components/shared/Button';
+import { Logo } from '@components/Logo';
+import { useScroll, motion } from 'framer-motion';
+import { PageSection } from '@components/shared/PageSection';
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
 export const Navigation = () => (
-  <nav className="relative py-12">
-    <ul className="relative flex justify-center">
-      {links.map(({ href, label }) => {
-        const isActive = href === window.location.pathname;
-
-        return (
-          <li
-            className={clsx(
-              'flex justify-center min-w-28',
-              isActive && 'border-b-2 border-blue-500',
-            )}
-            key={`${href}${label}`}
-          >
-            <Link href={href}>
-              <Button as="span" variant="nav">
-                {label}
-              </Button>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+  <nav className="max-w-[1440px] mx-auto">
+    <PageSection as="div" className="z-50" variant="navigation">
+      <div className="flex justify-between w-[80%] mx-auto  py-6">
+        <Link href="/">
+          <Logo size="xs" animation={false} />
+        </Link>
+        <ul>
+          {links.map(({ href, label }) => (
+            <li key={`${href}${label}`} className="inline mx-6">
+              <Link href={href}>{label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </PageSection>
   </nav>
 );

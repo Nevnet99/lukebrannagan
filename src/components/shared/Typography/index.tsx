@@ -53,7 +53,7 @@ export const Typography = <
 
   return (
     <Component
-      className={clsx({
+      className={clsx('text-black', {
         [className as string]: !!className,
         [typographyStyles[Component as TAllowedTypographyTypes]]:
           true && !variant,

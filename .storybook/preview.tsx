@@ -15,7 +15,29 @@ const fjallaOne = Fjalla_One({
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: 'neo',
+      values: [
+        {
+          name: 'neo',
+          value: '#FAFAFA',
+        },
+        {
+          name: 'primary',
+          value: '#82AFFF',
+        },
+        {
+          name: 'secondary',
+          value: '#35CC9E',
+        },
+        {
+          name: 'tertiary',
+          value: '#F7D1F8',
+        },
+        {
+          name: 'quaternary',
+          value: '#FFAF61',
+        },
+      ],
     },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {

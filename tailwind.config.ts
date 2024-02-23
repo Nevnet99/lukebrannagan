@@ -12,6 +12,16 @@ const config: Config = {
         manrope: ['var(--font-manrope)', 'sans-serif'],
         fjalla: ['var(--font-fjalla)', 'sans-serif'],
       },
+      colors: {
+        base: '#FAFAFA',
+        primary: '#82AFFF',
+        secondary: '#35CC9E',
+        tertiary: '#F7D1F8',
+        quaternary: '#FFAF61',
+      },
+      dropShadow: {
+        'neo-brutalist': '4px 4px 0px rgba(0, 0, 0, 1)',
+      },
     },
     fontSize: {
       '5xl': '11.088rem',
