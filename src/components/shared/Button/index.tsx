@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import { cn } from '@utils/cn';
 import { Typography } from '../Typography';
 
 export const ButtonDefaultType = 'p' as const;
@@ -27,44 +27,56 @@ interface TButtonProps<E extends React.ElementType> {
    * Polymorphic prop for the Typography component allowing you to choose valid HTML text elements
    */
   as?: E;
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   size?: 'small' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'nav';
   className?: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
-const sizes = {
-  small: 'px-2 py-1',
-  medium: 'px-4 py-2',
-  large: 'px-6 py-3',
+const variants = {
+  primary: 'bg-primary',
+  secondary: 'bg-secondary',
+  tertiary: 'bg-tertiary',
+  quaternary: 'bg-quaternary',
 };
 
-const variants = {
-  primary: 'bg-blue-500 text-white',
-  secondary: 'bg-gray-200 text-gray-700',
-  nav: 'text-white',
+const sizes = {
+  small: 'px-4 py-1',
+  medium: 'px-8 py-2',
+  large: 'px-8 py-3',
 };
 
 export const Button = <E extends React.ElementType = TButtonDefaultType>({
   as,
   className,
-  size = 'medium',
   variant = 'primary',
   children,
+  size = 'medium',
+  onClick,
   ...rest
 }: TButtonProps<E>) => {
   const Component = as || 'button';
 
   return (
     <Component
-      className={clsx({
+      className={cn(
+        'rounded-full flex justify-center drop-shadow-neo-brutalist',
         className,
-        [sizes[size]]: true,
-        [variants[variant]]: true,
-      })}
+        {
+          [sizes[size]]: true,
+          [variants[variant]]: true,
+        },
+      )}
+      onClick={onClick}
       {...rest}
     >
-      <Typography as="span">{children}</Typography>
+      <Typography
+        as="span"
+        variant={size === 'small' ? 'body-regular' : 'body-large'}
+      >
+        {children}
+      </Typography>
     </Component>
   );
 };

@@ -14,8 +14,34 @@ const meta = {
   tags: ['autodocs'],
   args: {
     blok: {
-      Title: 'Hero Title',
-      Subtext: 'Hero Subtext',
+      copy1: {
+        type: 'doc',
+        content: [
+          {
+            type: 'paragraph',
+            content: [
+              {
+                text: 'Example Text',
+                type: 'text',
+              },
+            ],
+          },
+        ],
+      },
+      copy2: {
+        type: 'doc',
+        content: [
+          {
+            type: 'paragraph',
+            content: [
+              {
+                text: 'Example Text',
+                type: 'text',
+              },
+            ],
+          },
+        ],
+      },
       _uid: '123',
       component: 'Hero',
     },

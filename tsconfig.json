@@ -20,9 +20,10 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"],
+      "@utils/*": ["./src/utils/*"],
 
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "./src/types/component-types-sb.d.ts"],
-  "exclude": ["node_modules", "postcss.config.js"]
+  "exclude": ["node_modules", "postcss.config.js", ".next"]
 }
