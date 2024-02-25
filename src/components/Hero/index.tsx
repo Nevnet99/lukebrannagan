@@ -3,7 +3,6 @@ import { Typography } from '@components/shared/Typography';
 import React from 'react';
 import { Logo } from '@components/Logo';
 import { RichText } from '@components/shared/RichText';
-import { InView } from '@components/shared/animations/InView';
 import { HeroStoryblok } from '../../types/component-types-sb';
 
 export type THeroProps = {
