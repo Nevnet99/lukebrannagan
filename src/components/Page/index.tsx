@@ -1,4 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react/rsc';
+import { motion } from 'framer-motion';
 import { PageStoryblok } from '../../types/component-types-sb';
 
 export type TPageProps = {
@@ -13,10 +14,10 @@ export const Page = ({ blok }: TPageProps) => {
   }
 
   return (
-    <main {...storyblokEditable(blok)}>
+    <motion.main {...storyblokEditable(blok)}>
       {components.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid as string} />
       ))}
-    </main>
+    </motion.main>
   );
 };

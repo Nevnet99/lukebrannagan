@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { PageSection } from '@components/shared/PageSection';
 import { HalfAndHalfImageStoryblok } from '../../types/component-types-sb';
 
@@ -8,7 +9,7 @@ export const HalfAndHalfImage = ({ blok }: THalfAndHalfImage) => {
   const { image1, image2, flavourImage } = blok;
 
   return (
-    <PageSection className="border-t-0 pt-10" variant="noPaddingTop">
+    <PageSection className="border-t-0 pt-10">
       <div className=" max-w-[80%] mx-auto ">
         <div className="flex flex-col md:flex-row gap-10">
           <div className="w-full md:w-1/2 drop-shadow-neo-brutalist">

@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import clsx from 'clsx';
+import { format } from 'date-fns';
 import { Typography } from '../Typography';
 import { AuthorStoryblok } from '../../../types/component-types-sb';
+import { cn } from '../../../utils/cn';
 
 export const Avatar = ({
   company,
@@ -10,12 +12,14 @@ export const Avatar = ({
   profilePicture,
   className,
   orientation = 'center',
+  updatedAt,
 }: AuthorStoryblok & {
   orientation?: 'left' | 'center';
   className?: string;
+  updatedAt?: string;
 }) => (
   <div
-    className={clsx(
+    className={cn(
       'flex gap-4 ',
       orientation === 'left' && 'justify-start items-center',
       orientation === 'center' && 'justify-center items-center',
@@ -32,6 +36,11 @@ export const Avatar = ({
       {company && jobTitle && (
         <Typography className="flex opacity-70">
           {jobTitle} - {company}
+        </Typography>
+      )}
+      {updatedAt && (
+        <Typography className="flex opacity-70">
+          Last Updated: {format(updatedAt, 'do MMM yyyy p')}
         </Typography>
       )}
     </div>

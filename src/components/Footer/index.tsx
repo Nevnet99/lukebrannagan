@@ -13,13 +13,14 @@ export const Footer = () => (
       </div>
       <div className="w-[80%] mx-auto flex flex-col md:flex-row mt-16 justify-between">
         <Typography className="mb-10 md:mb-0 md:w-[50%]" variant="body-large">
-          I’m currently looking for opportunities for perm or freelance work,
-          hit me up!
+          I’m currently looking for opportunities for <b>perm</b>,{' '}
+          <b>freelance</b> or <b>contract</b> work, hit me up!
         </Typography>
 
         <div className="md:w-[45%]">
-          In specific I’m looking for remote working, an awesome culture, a
-          place to grow and learn and an interesting challenge.
+          In specific I’m looking for <b>remote working</b>, an{' '}
+          <b>awesome culture</b>, a place to grow and learn and an interesting
+          challenge.
         </div>
       </div>
       <div className="w-[80%] mx-auto mt-12">

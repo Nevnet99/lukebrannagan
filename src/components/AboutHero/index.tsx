@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { PageSection } from '@components/shared/PageSection';
 import { RichText } from '@components/shared/RichText';
 import { Typography } from '@components/shared/Typography';
@@ -8,17 +9,21 @@ export type TAboutHeroProps = {
 };
 export const AboutHero = ({ blok }: TAboutHeroProps) => (
   <PageSection className="border-t-0">
-    <div className="max-w-[80%] mx-auto md:mb-10">
+    <div className="max-w-[80%] mx-auto lg:mb-10">
       <Typography variant="h2" className="text-center" font="fjalla">
         {blok.title}
       </Typography>
     </div>
-    <div className="flex flex-col md:flex-row md:gap-5  max-w-[80%] mx-auto">
+    <div className="flex flex-col lg:flex-row lg:gap-5  max-w-[80%] mx-auto">
       {blok.profile && (
-        <img className="mb-10 md:mb-0" src={blok.profile.filename} alt="" />
+        <img
+          className="mb-10 lg:mb-0 min-w-[330px] max-w-[330px] max-h-[440px] mx-auto"
+          src={blok.profile.filename}
+          alt=""
+        />
       )}
       <div>
-        <div className="mb-10 md:mb-5">
+        <div className="mb-10 lg:mb-5">
           <RichText document={blok.subTitle} />
         </div>
         <div className="text-lg font-light">

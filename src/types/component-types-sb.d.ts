@@ -1,4 +1,4 @@
-import {StoryblokStory} from 'storyblok-generate-ts'
+import { StoryblokStory } from 'storyblok-generate-ts';
 
 export interface AssetStoryblok {
   alt?: string;
@@ -26,7 +26,7 @@ export interface AboutHeroStoryblok {
   subTitle?: RichtextStoryblok;
   copy?: RichtextStoryblok;
   _uid: string;
-  component: "AboutHero";
+  component: 'AboutHero';
   [k: string]: any;
 }
 
@@ -36,7 +36,7 @@ export interface AuthorStoryblok {
   jobTitle?: string;
   company?: string;
   _uid: string;
-  component: "Author";
+  component: 'Author';
   [k: string]: any;
 }
 
@@ -44,14 +44,14 @@ export interface CardStoryblok {
   title?: string;
   copy?: RichtextStoryblok;
   _uid: string;
-  component: "Card";
+  component: 'Card';
   [k: string]: any;
 }
 
 export interface CopyStoryblok {
   copy?: RichtextStoryblok;
   _uid: string;
-  component: "Copy";
+  component: 'Copy';
   [k: string]: any;
 }
 
@@ -60,7 +60,7 @@ export type MultilinkStoryblok =
       id?: string;
       cached_url?: string;
       anchor?: string;
-      linktype?: "story";
+      linktype?: 'story';
       story?: {
         name: string;
         created_at?: string;
@@ -96,27 +96,30 @@ export type MultilinkStoryblok =
       url?: string;
       cached_url?: string;
       anchor?: string;
-      linktype?: "asset" | "url";
+      linktype?: 'asset' | 'url';
       [k: string]: any;
     }
   | {
       email?: string;
-      linktype?: "email";
+      linktype?: 'email';
       [k: string]: any;
     };
 
 export interface CtaStoryblok {
   text: string;
-  href: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  href: Exclude<
+    MultilinkStoryblok,
+    { linktype?: 'email' } | { linktype?: 'asset' }
+  >;
   _uid: string;
-  component: "CTA";
+  component: 'CTA';
   [k: string]: any;
 }
 
 export interface FourCardFeatureStoryblok {
   cards: CardStoryblok[];
   _uid: string;
-  component: "FourCardFeature";
+  component: 'FourCardFeature';
   [k: string]: any;
 }
 
@@ -125,7 +128,7 @@ export interface HalfAndHalfImageStoryblok {
   image2: AssetStoryblok;
   flavourImage: AssetStoryblok;
   _uid: string;
-  component: "HalfAndHalfImage";
+  component: 'HalfAndHalfImage';
   [k: string]: any;
 }
 
@@ -133,15 +136,18 @@ export interface HeroStoryblok {
   copy1: RichtextStoryblok;
   copy2: RichtextStoryblok;
   _uid: string;
-  component: "Hero";
+  component: 'Hero';
   [k: string]: any;
 }
 
 export interface MarqueeStoryblok {
   text: string;
-  href: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  href: Exclude<
+    MultilinkStoryblok,
+    { linktype?: 'email' } | { linktype?: 'asset' }
+  >;
   _uid: string;
-  component: "Marquee";
+  component: 'Marquee';
   [k: string]: any;
 }
 
@@ -165,7 +171,7 @@ export interface PageStoryblok {
     | ThreeCardFeatureStoryblok
   )[];
   _uid: string;
-  component: "Page";
+  component: 'Page';
   [k: string]: any;
 }
 
@@ -173,17 +179,20 @@ export interface PersonStoryblok {
   name?: string;
   image?: AssetStoryblok;
   _uid: string;
-  component: "Person";
+  component: 'Person';
   [k: string]: any;
 }
 
 export interface PostStoryblok {
-  image: AssetStoryblok;
-  title: string;
-  author: AuthorStoryblok[];
-  copy?: RichtextStoryblok;
-  _uid: string;
-  component: "Post";
+  full_slug: string;
+  published_at: string;
+  content: {
+    component: 'Post';
+    copy: RichtextStoryblok;
+    image: AssetStoryblok;
+    title: string;
+    author: AuthorStoryblok[];
+  };
   [k: string]: any;
 }
 
@@ -191,7 +200,7 @@ export interface StatementStoryblok {
   statement: string;
   cta: CtaStoryblok[];
   _uid: string;
-  component: "Statement";
+  component: 'Statement';
   [k: string]: any;
 }
 
@@ -199,14 +208,14 @@ export interface TestimonialStoryblok {
   testimonal?: RichtextStoryblok;
   author: AuthorStoryblok[];
   _uid: string;
-  component: "Testimonial";
+  component: 'Testimonial';
   [k: string]: any;
 }
 
 export interface TestimonialsStoryblok {
   testimonials: TestimonialStoryblok[];
   _uid: string;
-  component: "Testimonials";
+  component: 'Testimonials';
   [k: string]: any;
 }
 
@@ -214,6 +223,6 @@ export interface ThreeCardFeatureStoryblok {
   cards: CardStoryblok[];
   cta: CtaStoryblok[];
   _uid: string;
-  component: "ThreeCardFeature";
+  component: 'ThreeCardFeature';
   [k: string]: any;
 }

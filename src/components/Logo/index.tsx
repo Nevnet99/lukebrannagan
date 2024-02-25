@@ -7,7 +7,7 @@ const lAnimation = {
   transition: {
     type: 'spring',
     stiffness: 80,
-    duration: 1,
+    duration: 0.4,
     ease: 'easeInOut',
   },
   viewport: { once: true },
@@ -19,9 +19,9 @@ const uAnimation = {
   transition: {
     type: 'spring',
     stiffness: 80,
-    duration: 1,
+    duration: 0.4,
     ease: 'easeInOut',
-    delay: 1,
+    delay: 0.4,
   },
   viewport: { once: true },
 };
@@ -32,9 +32,9 @@ const kAnimation = {
   transition: {
     type: 'spring',
     stiffness: 80,
-    duration: 1,
+    duration: 0.4,
     ease: 'easeInOut',
-    delay: 2,
+    delay: 0.8,
   },
   viewport: { once: true },
 };
@@ -45,9 +45,9 @@ const eAnimation = {
   transition: {
     type: 'spring',
     stiffness: 80,
-    duration: 1,
+    duration: 0.4,
     ease: 'easeInOut',
-    delay: 3,
+    delay: 1.2,
   },
   viewport: { once: true },
 };
@@ -80,10 +80,10 @@ export type TLogoProps = {
   animation?: boolean;
 };
 
-export const Logo = ({ size, animation = true }: TLogoProps) => (
+export const Logo = ({ size = 'lg', animation = true }: TLogoProps) => (
   <svg
-    width={size === 'xs' ? '100' : '559'}
-    height={size === 'xs' ? '30' : '201'}
+    width={sizes[size].width}
+    height={sizes[size].height}
     viewBox="0 0 600 201"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

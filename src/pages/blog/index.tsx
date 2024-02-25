@@ -6,6 +6,7 @@ import { PageSection } from '@components/shared/PageSection';
 import { BlogCards } from '@components/BlogCards';
 import { PostFilters } from '@components/PostFilters';
 import { Typography } from '@components/shared/Typography';
+import { Skeleton } from '@components/shared/Skeleton';
 import { PostStoryblok } from '../../types/component-types-sb';
 
 export default function Blog() {
@@ -19,19 +20,21 @@ export default function Blog() {
     items: PostStoryblok[];
   };
 
-  if (!posts?.items) {
-    return <PageSection className="border-t-0">Loading...</PageSection>;
-  }
-
   return (
-    <PageSection>
+    <PageSection className="border-t-0">
       <div className="w-[80%] mx-auto">
-        <Typography as="h1" variant="h3" font="fjalla">
+        <Typography className="mb-10" as="h1" variant="h3" font="fjalla">
           Blog & Project Posts
         </Typography>
-
-        <PostFilters />
-        <BlogCards cards={posts.items} />
+        {!posts && (
+          <div className="w-[80%] mx-auto flex gap-5">
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </div>
+        )}
+        {/* <PostFilters /> */}
+        {posts && <BlogCards cards={posts.items} />}
       </div>
     </PageSection>
   );

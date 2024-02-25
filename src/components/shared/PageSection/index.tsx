@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import { cn } from '@utils/cn';
 
 export const PageSectionDefaultType = 'section' as const;
 export type TTypographyDefaultType = typeof PageSectionDefaultType;
@@ -22,10 +22,7 @@ export type TPageSectionProps<E extends React.ElementType> = {
     | 'navigation'
     | 'threeCardFeature'
     | 'footer'
-    | 'fourCardFeature'
-    | 'noPadding'
-    | 'noPaddingTop'
-    | 'noPaddingBottom';
+    | 'fourCardFeature';
 };
 
 export const PageSection = <
@@ -41,7 +38,7 @@ export const PageSection = <
   // TODO: refactor this and find out why styles are not being overridden
   return (
     <Component
-      className={clsx(
+      className={cn(
         variant === 'default' &&
           'bg-white mx-5 md:mx-10 lg:mx-28 py-28 border-black border-2',
         variant === 'ghost' && 'bg-transparent border-none p-0',
@@ -55,12 +52,6 @@ export const PageSection = <
           'bg-primary mx-5 md:mx-10 lg:mx-28 py-28 border-black border-2',
         variant === 'fourCardFeature' &&
           'bg-tertiary mx-5 md:mx-10 lg:mx-28 py-28 border-black border-2',
-        variant === 'noPadding' &&
-          'bg-white mx-5 md:mx-10 lg:mx-28 py-0 border-black border-2',
-        variant === 'noPaddingTop' &&
-          'bg-white mx-5 md:mx-10 lg:mx-28 pt-0 pb-28 border-black border-2',
-        variant === 'noPaddingBottom' &&
-          'bg-white mx-5 md:mx-10 lg:mx-28 pt-28 pb-0 border-black border-2',
         className,
       )}
     >

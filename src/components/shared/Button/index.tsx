@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import { cn } from '@utils/cn';
 import { Typography } from '../Typography';
 
 export const ButtonDefaultType = 'p' as const;
@@ -28,8 +28,10 @@ interface TButtonProps<E extends React.ElementType> {
    */
   as?: E;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  size?: 'small' | 'medium' | 'large';
   className?: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
 const variants = {
@@ -39,27 +41,40 @@ const variants = {
   quaternary: 'bg-quaternary',
 };
 
+const sizes = {
+  small: 'px-4 py-1',
+  medium: 'px-8 py-2',
+  large: 'px-8 py-3',
+};
+
 export const Button = <E extends React.ElementType = TButtonDefaultType>({
   as,
   className,
   variant = 'primary',
   children,
+  size = 'medium',
+  onClick,
   ...rest
 }: TButtonProps<E>) => {
   const Component = as || 'button';
 
   return (
     <Component
-      className={clsx(
-        'px-8 py-2 rounded-full flex justify-center drop-shadow-neo-brutalist',
+      className={cn(
+        'rounded-full flex justify-center drop-shadow-neo-brutalist',
+        className,
         {
-          className,
+          [sizes[size]]: true,
           [variants[variant]]: true,
         },
       )}
+      onClick={onClick}
       {...rest}
     >
-      <Typography as="span" variant="body-large">
+      <Typography
+        as="span"
+        variant={size === 'small' ? 'body-regular' : 'body-large'}
+      >
         {children}
       </Typography>
     </Component>

@@ -1,5 +1,5 @@
+import { cn } from '@utils/cn';
 import React from 'react';
-import clsx from 'clsx';
 
 export const TypographyDefaultType = 'p' as const;
 export type TTypographyDefaultType = typeof TypographyDefaultType;
@@ -53,15 +53,18 @@ export const Typography = <
 
   return (
     <Component
-      className={clsx('text-black', {
-        [className as string]: !!className,
-        [typographyStyles[Component as TAllowedTypographyTypes]]:
-          true && !variant,
-        // ? variant overrides the styles via the as prop in case you want a h1 with p styles
-        [typographyStyles[variant as TAllowedTypographyTypes]]: !!variant,
-        'font-manrope': font === 'manrope',
-        'font-fjalla': font === 'fjalla',
-      })}
+      className={cn(
+        'text-black',
+        {
+          [typographyStyles[Component as TAllowedTypographyTypes]]:
+            true && !variant,
+          // ? variant overrides the styles via the as prop in case you want a h1 with p styles
+          [typographyStyles[variant as TAllowedTypographyTypes]]: !!variant,
+          'font-manrope': font === 'manrope',
+          'font-fjalla': font === 'fjalla',
+        },
+        className,
+      )}
     >
       {children}
     </Component>

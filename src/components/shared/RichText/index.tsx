@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
 import {
+  MARK_ANCHOR,
   NODE_HEADING,
   NODE_PARAGRAPH,
   render,
 } from 'storyblok-rich-text-react-renderer';
 import { Typography } from '../Typography';
+import { Link } from '../Link';
 
 export type TLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -17,6 +19,7 @@ const schemas = {
     },
   },
   'blog-post': {
+    markResolvers: {},
     nodeResolvers: {
       [NODE_PARAGRAPH]: (children: ReactNode) => (
         <Typography className="mb-5" variant="body-large">

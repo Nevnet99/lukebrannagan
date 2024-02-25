@@ -1,26 +1,38 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @next/next/no-img-element */
-// TODO: LOOK INTO WHY THIS AUTO GENERATED TYPE IS WRONG
 import { Typography } from '@components/shared/Typography';
 import Link from 'next/link';
 import React from 'react';
+import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 import { PostStoryblok } from '../../../types/component-types-sb';
+
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 export const Card = ({
   content: { title, image },
   first_published_at: firstPublishedAt,
   slug,
 }: PostStoryblok) => (
-  <li className="md:w-[calc(33.33%-0.85rem)]">
+  <motion.li
+    key={title}
+    className="md:w-[calc(33.33%-0.85rem)]"
+    variants={variants}
+  >
     <Link href={`/blog/${slug}`}>
       <div>
-        <img src={image?.filename} alt="" />
+        <img className="rounded-lg" src={image?.filename} alt="" />
       </div>
-      <Typography>{firstPublishedAt}</Typography>
-      <Typography className="font-bold" as="h2" variant="body-regular">
+      <Typography className="py-2 opacity-80">
+        Updated: {format(firstPublishedAt, 'do MMM yyyy p')}
+      </Typography>
+      <Typography className="font-bold" as="h2" variant="body-large">
         {title}
       </Typography>
     </Link>
-  </li>
+  </motion.li>
 );

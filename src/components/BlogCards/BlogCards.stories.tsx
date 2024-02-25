@@ -18,7 +18,41 @@ const meta = {
       {
         content: {
           title: 'Test Title',
+          component: 'Post',
+          copy: {
+            type: 'doc',
+            content: [
+              {
+                type: 'paragraph',
+                content: [
+                  {
+                    text: 'Test content',
+                    marks: [],
+                    data: {},
+                    type: '',
+                  },
+                ],
+              },
+            ],
+          },
+          image: {
+            id: 0,
+            filename: '',
+            name: '',
+          },
+          author: [],
         },
+        image: {
+          id: 0,
+          filename: '',
+          name: '',
+        },
+        title: '',
+        author: [],
+        _uid: '',
+        component: 'Post',
+        full_slug: '',
+        published_at: '',
       },
     ],
   },

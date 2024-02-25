@@ -15,7 +15,7 @@ export const Statement = ({ blok: { statement, cta: ctas } }: TStatement) => {
   return (
     <PageSection className="border-t-0">
       <div className="flex flex-col max-w-[80%] mx-auto">
-        <Typography variant="h2" font="fjalla">
+        <Typography className="mb-10  break-words" variant="h2" font="fjalla">
           {statement}
         </Typography>
         <Link href={cta.href.cached_url || ''}>
