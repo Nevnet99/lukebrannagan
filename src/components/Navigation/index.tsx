@@ -47,7 +47,7 @@ export const Navigation = () => {
             <ul className="flex justify-center bg-base shadow-md py-2 border-primary border-2 rounded-3xl">
               {links.map(({ href, label }) => {
                 let isBlogPost;
-                if (path!.includes('/blog/')) {
+                if (path.includes('/blog/')) {
                   isBlogPost = href === '/blog';
                 }
                 const isActive = href === path || isBlogPost;
@@ -84,7 +84,7 @@ export const Navigation = () => {
               <ul className="flex flex-col justify-center items-center">
                 {links.map(({ href, label }) => {
                   let isBlogPost;
-                  if (path!.includes('/blog/')) {
+                  if (path.includes('/blog/')) {
                     isBlogPost = href === '/blog';
                   }
                   const isActive = href === path || isBlogPost;
@@ -125,7 +125,7 @@ export const Navigation = () => {
             <ul className="hidden md:block">
               {links.map(({ href, label }) => {
                 let isBlogPost;
-                if (path!.includes('/blog/')) {
+                if (path.includes('/blog/')) {
                   isBlogPost = href === '/blog';
                 }
                 const isActive = href === path || isBlogPost;
