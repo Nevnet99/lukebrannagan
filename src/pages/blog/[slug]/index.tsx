@@ -5,6 +5,7 @@ import { RichText } from '@components/shared/RichText';
 import { Avatar } from '@components/shared/Avatar';
 import { client } from '@components/Providers/ApolloClient';
 import Link from 'next/link';
+import Image from 'next/image';
 import { PostStoryblok } from '../../../types/component-types-sb';
 
 export type TBlogPostsPagesResponse = {
@@ -43,10 +44,14 @@ export default function BlogPost({ pageProps: { storyblok } }: TBlogPostProps) {
           />
         )}
         {post?.content.image?.filename && (
-          <img
+          <Image
+            width={970}
+            height={545}
             className="rounded-3xl mb-14"
             src={post?.content.image.filename}
             alt=""
+            placeholder="blur"
+            blurDataURL={post?.content.image.filename}
           />
         )}
         <RichText document={post?.content.copy} variant="blog-post" />

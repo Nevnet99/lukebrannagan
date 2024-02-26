@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import {
-  MARK_ANCHOR,
+  MARK_LINK,
   NODE_HEADING,
   NODE_PARAGRAPH,
   render,
 } from 'storyblok-rich-text-react-renderer';
 import { Typography } from '../Typography';
-import { Link } from '../Link';
+import { Link, TLinkProps } from '../Link';
 
 export type TLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -19,7 +19,11 @@ const schemas = {
     },
   },
   'blog-post': {
-    markResolvers: {},
+    markResolvers: {
+      [MARK_LINK]: (children: ReactNode, props: TLinkProps) => (
+        <Link {...props}>{children}</Link>
+      ),
+    },
     nodeResolvers: {
       [NODE_PARAGRAPH]: (children: ReactNode) => (
         <Typography className="mb-5" variant="body-large">
@@ -57,4 +61,5 @@ export type RichTextProps = {
 };
 
 export const RichText = ({ document, variant = 'default' }: RichTextProps) =>
+  // @ts-expect-error its because the props from the link dont match the props from the rich text
   render(document, schemas[variant]) as ReactNode[];

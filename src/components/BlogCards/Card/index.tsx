@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { PostStoryblok } from '../../../types/component-types-sb';
 
 const variants = {
@@ -25,7 +26,15 @@ export const Card = ({
   >
     <Link href={`/blog/${slug}`}>
       <div>
-        <img className="rounded-lg" src={image?.filename} alt="" />
+        <Image
+          className="rounded-lg"
+          src={image?.filename}
+          alt=""
+          width="400"
+          height="300"
+          placeholder="blur"
+          blurDataURL={image?.filename}
+        />
       </div>
       <Typography className="py-2 opacity-80">
         Updated: {format(firstPublishedAt, 'do MMM yyyy p')}

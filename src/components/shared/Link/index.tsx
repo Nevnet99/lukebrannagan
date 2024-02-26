@@ -1,15 +1,30 @@
 // eslint-disable-next-line import/no-named-default
+import { cn } from '@utils/cn';
+// eslint-disable-next-line import/no-named-default
 import { default as NextLink } from 'next/link';
 
 export type TLinkProps = {
-  internal?: boolean;
+  href: string;
   children: React.ReactNode;
+  className?: string;
 };
 
-export const Link = ({ internal, children }: TLinkProps) => {
-  if (internal) {
-    return <NextLink href="/">{children}</NextLink>;
+const sharedClasses = 'text-secondary hover:underline visited:text-primary';
+
+export const Link = ({ href, className, children, ...rest }: TLinkProps) => {
+  const isInternal = /^\/(?!\/)/.test(href);
+
+  if (isInternal) {
+    return (
+      <NextLink className={cn(sharedClasses, className)} href={href} {...rest}>
+        {children}
+      </NextLink>
+    );
   }
 
-  return <a>{children}</a>;
+  return (
+    <a className={cn(sharedClasses, className)} href={href} {...rest}>
+      {children}
+    </a>
+  );
 };

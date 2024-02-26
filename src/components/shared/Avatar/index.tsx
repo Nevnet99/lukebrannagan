@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { format } from 'date-fns';
+import Image from 'next/image';
 import { Typography } from '../Typography';
 import { AuthorStoryblok } from '../../../types/component-types-sb';
 import { cn } from '../../../utils/cn';
@@ -28,7 +29,12 @@ export const Avatar = ({
   >
     {profilePicture && (
       <div className="flex overflow-hidden rounded-full w-14 h-14  border-2 border-primary">
-        <img src={profilePicture.filename} alt={profilePicture.alt} />
+        <Image
+          src={profilePicture.filename}
+          alt={profilePicture.alt || ''}
+          width={52}
+          height={52}
+        />
       </div>
     )}
     <div className="flex flex-col text-left">
