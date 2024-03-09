@@ -18,6 +18,7 @@ const config: Config = {
         secondary: '#35CC9E',
         tertiary: '#F7D1F8',
         quaternary: '#FFAF61',
+        focus: '#000085',
       },
       dropShadow: {
         'neo-brutalist': '4px 4px 0px rgba(0, 0, 0, 1)',

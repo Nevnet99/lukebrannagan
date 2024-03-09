@@ -4,9 +4,6 @@
 
 
 
-@media (prefers-color-scheme: dark) {
- 
-}
 
 body {
   @apply bg-base;
@@ -14,6 +11,11 @@ body {
 
 main {
  @apply max-w-[1440px] mx-auto;
+}
+
+*:focus {
+  @apply outline-2 shadow-md shadow-focus border-2 border-focus;
+
 }
 
 

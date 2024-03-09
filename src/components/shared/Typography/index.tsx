@@ -24,6 +24,7 @@ export type TTypographyProps<E extends React.ElementType> = {
    */
   font?: 'manrope' | 'fjalla';
   children: React.ReactNode;
+  htmlFor?: string;
 };
 
 const typographyStyles = {
@@ -48,6 +49,7 @@ export const Typography = <
   variant,
   children,
   font = 'manrope',
+  ...rest
 }: TTypographyProps<E>) => {
   const Component = as || 'p';
 
@@ -65,6 +67,7 @@ export const Typography = <
         },
         className,
       )}
+      {...rest}
     >
       {children}
     </Component>

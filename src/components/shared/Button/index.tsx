@@ -1,38 +1,18 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { cn } from '@utils/cn';
 import { Typography } from '../Typography';
 
-export const ButtonDefaultType = 'p' as const;
-export type TButtonDefaultType = typeof ButtonDefaultType;
+export const buttonDefault = 'button' as const;
+export type TButtonDefaultType = typeof buttonDefault;
 
-export type TTypographyProps<E extends React.ElementType> = {
-  /**
-   * Polymorphic prop for the Typography component allowing you to choose valid HTML text elements
-   */
-  as?: E;
-  /**
-   * Add extra classes to the Typography component
-   */
-  className?: string;
-  /**
-   * The variant of the typography component this will override the styles for the as so you can have
-   * a h1 with p styles
-   */
-  variant?: E;
-  children: React.ReactNode;
-};
-
-interface TButtonProps<E extends React.ElementType> {
-  /**
-   * Polymorphic prop for the Typography component allowing you to choose valid HTML text elements
-   */
+type TButtonProps<E extends React.ElementType = TButtonDefaultType> = {
   as?: E;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   size?: 'small' | 'medium' | 'large';
   className?: string;
   children: React.ReactNode;
   onClick?: () => void;
-}
+} & ComponentPropsWithoutRef<E>;
 
 const variants = {
   primary: 'bg-primary',
@@ -56,7 +36,7 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
   onClick,
   ...rest
 }: TButtonProps<E>) => {
-  const Component = as || 'button';
+  const Component = as || buttonDefault;
 
   return (
     <Component
