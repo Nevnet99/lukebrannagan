@@ -4,7 +4,6 @@ import { gql, useQuery } from '@apollo/client';
 import { ISbStoryData, useStoryblokState } from '@storyblok/react';
 import { PageSection } from '@components/shared/PageSection';
 import { BlogCards } from '@components/BlogCards';
-import { PostFilters } from '@components/PostFilters';
 import { Typography } from '@components/shared/Typography';
 import { Skeleton } from '@components/shared/Skeleton';
 import { PostStoryblok } from '../../types/component-types-sb';

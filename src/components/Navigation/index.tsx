@@ -120,6 +120,7 @@ export const Navigation = () => {
           <div className="relative flex justify-between w-[80%] mx-auto  py-6">
             <Link className="flex justify-center items-center" href="/">
               <Logo size="xs" animation={false} />
+              <p className="sr-only">Homepage</p>
             </Link>
             {/* desktop */}
             <ul className="hidden md:block">
