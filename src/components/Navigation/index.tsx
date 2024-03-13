@@ -97,7 +97,11 @@ export const Navigation = () => {
                       {isActive && (
                         <motion.span className="absolute inset-0 block h-full w-full bg-tertiary rounded-full z-[101]" />
                       )}
-                      <Link className="z-[102] relative" href={href}>
+                      <Link
+                        className="z-[102] relative"
+                        href={href}
+                        onClick={() => setShowNav(false)}
+                      >
                         {label}
                       </Link>
                     </li>
