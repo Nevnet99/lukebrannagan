@@ -7,8 +7,7 @@ import { useBreakpoint } from '../hooks/useWindowSize';
 
 export default function App({ Component, ...rest }: AppProps) {
   const breakpoint = useBreakpoint();
-  const NOTTabletORMobile =
-    breakpoint !== 'sm' && breakpoint !== 'md' && breakpoint !== 'lg';
+  const NOTTabletORMobile = breakpoint >= 1024;
 
   return (
     <Providers>
