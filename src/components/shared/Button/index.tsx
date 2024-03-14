@@ -1,6 +1,7 @@
 import React, { ComponentPropsWithoutRef } from 'react';
 import { cn } from '@utils/cn';
 import { Typography } from '../Typography';
+import { useCursorStore } from '../../../stores/cursor';
 
 export const buttonDefault = 'button' as const;
 export type TButtonDefaultType = typeof buttonDefault;
@@ -36,6 +37,7 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
   onClick,
   ...rest
 }: TButtonProps<E>) => {
+  const { setCursorType } = useCursorStore();
   const Component = as || buttonDefault;
 
   return (
@@ -48,6 +50,8 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
           [variants[variant]]: true,
         },
       )}
+      onMouseOver={() => setCursorType('CLICKABLE')}
+      onMouseLeave={() => setCursorType('DEFAULT')}
       onClick={onClick}
       {...rest}
     >

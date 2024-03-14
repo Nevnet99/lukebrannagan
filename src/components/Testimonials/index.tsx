@@ -3,12 +3,14 @@ import { Testimonial } from '@components/shared/Testimonial';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TestimonialsStoryblok } from '../../types/component-types-sb';
+import { useCursorStore } from '../../stores/cursor';
 
 export type TTestimonials = {
   blok: TestimonialsStoryblok;
 };
 
 export const Testimonials = ({ blok }: TTestimonials) => {
+  const { setCursorType } = useCursorStore();
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselLength = blok.testimonials.length;
 
@@ -43,6 +45,10 @@ export const Testimonials = ({ blok }: TTestimonials) => {
           className="border-r-2 border-black p-4"
           onClick={prevSlide}
           type="button"
+          // ! This is a false positive, the button is not missing a key event this is purely visual
+          // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+          onMouseOver={() => setCursorType('CLICKABLE')}
+          onMouseLeave={() => setCursorType('DEFAULT')}
         >
           <svg
             className="transform rotate-180 "
@@ -69,6 +75,10 @@ export const Testimonials = ({ blok }: TTestimonials) => {
               className={`${
                 index === activeIndex ? 'bg-primary' : 'bg-zinc-200'
               } w-6 h-6 md:w-2 md:h-2 rounded-full`}
+              // ! see above comment
+              // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+              onMouseOver={() => setCursorType('CLICKABLE')}
+              onMouseLeave={() => setCursorType('DEFAULT')}
             >
               <span className="sr-only">Slide {index + 1}</span>
             </button>
@@ -78,6 +88,10 @@ export const Testimonials = ({ blok }: TTestimonials) => {
           type="button"
           className="border-l-2 border-black p-4"
           onClick={nextSlide}
+          // ! see above comment
+          // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+          onMouseOver={() => setCursorType('CLICKABLE')}
+          onMouseLeave={() => setCursorType('DEFAULT')}
         >
           <svg
             width="51"

@@ -9,6 +9,10 @@ body {
   @apply bg-base;
 }
 
+* {
+  cursor: none;
+}
+
 main {
  @apply max-w-[1440px] mx-auto;
 }
