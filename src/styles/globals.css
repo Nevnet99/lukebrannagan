@@ -10,7 +10,7 @@ body {
 }
 
 * {
-  cursor: none;
+  @apply xl:cursor-none;
 }
 
 main {
