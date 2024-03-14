@@ -18,9 +18,9 @@ export const Hero = ({ blok }: THeroProps) => {
         <Logo />
       </div>
       <div className="w-[80%] mx-auto flex flex-col md:flex-row mt-36 justify-between">
-        <Typography className="mb-10 md:mb-0 md:w-[50%]" variant="body-large">
+        <div className="mb-10 md:mb-0 md:w-[50%]">
           <RichText document={copy1} />
-        </Typography>
+        </div>
 
         <div className="md:w-[45%]">
           <RichText document={copy2} />
