@@ -43,7 +43,7 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
   return (
     <Component
       className={cn(
-        'rounded-full flex justify-center drop-shadow-neo-brutalist',
+        'rounded-full flex justify-center drop-shadow-neo-brutalist w-fit',
         className,
         {
           [sizes[size]]: true,

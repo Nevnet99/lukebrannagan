@@ -4,6 +4,7 @@ import { PageSection } from '@components/shared/PageSection';
 import { TextArea } from '@components/shared/Textarea';
 import { Typography } from '@components/shared/Typography';
 import { supabase } from '@lib/supabase/client';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type TInputs = {
@@ -14,10 +15,31 @@ type TInputs = {
 };
 
 const Contact = () => {
-  const { register, handleSubmit } = useForm<TInputs>();
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TInputs>({
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    },
+  });
 
   const onSubmit: SubmitHandler<TInputs> = (data) => {
-    supabase.from('form').insert(data);
+    setLoading(true);
+    supabase
+      .from('form')
+      .insert(data)
+      .then(() => {
+        setLoading(false);
+        setSubmitted(true);
+      });
   };
 
   return (
@@ -39,41 +61,65 @@ const Contact = () => {
             <b> interesting challenge</b>.
           </Typography>
         </div>
-        <form
-          className="xl:w-[50%] flex flex-col bg-primary p-8 rounded-xl"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <Input
-            label="Name"
-            id="name"
-            name="name"
-            required
-            register={register}
-          />
-          <Input
-            label="Email Address"
-            id="email"
-            name="email"
-            required
-            register={register}
-          />
-          <Input label="Phone" id="phone" name="phone" register={register} />
-          <TextArea
-            label="Message"
-            id="message"
-            name="message"
-            required
-            register={register}
-          />
+        {!submitted && (
+          <form
+            className="xl:w-[50%] flex flex-col bg-primary p-8 rounded-xl"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <Input
+              label="Name"
+              id="name"
+              name="name"
+              required
+              register={register}
+              registerOptions={{ required: 'This field is required' }}
+              error={errors?.name?.message}
+            />
+            <Input
+              label="Email Address"
+              id="email"
+              name="email"
+              required
+              register={register}
+              registerOptions={{ required: 'This field is required' }}
+              error={errors?.email?.message}
+            />
+            <Input label="Phone" id="phone" name="phone" register={register} />
+            <TextArea
+              label="Message"
+              id="message"
+              name="message"
+              required
+              register={register}
+              registerOptions={{ required: 'This field is required' }}
+              error={errors?.message?.message}
+            />
 
-          <Typography className="py-5">
-            I'll delete your email from the DB after I send one back to you !
-          </Typography>
+            <Typography className="py-5">
+              I'll delete your email from the DB after I send one back to you !
+            </Typography>
 
-          <Button variant="quaternary" type="submit" className="mt-4">
-            Send
-          </Button>
-        </form>
+            <Button variant="quaternary" type="submit" className="mt-4">
+              Send
+              {loading && 'ing'}
+            </Button>
+          </form>
+        )}
+        {submitted && (
+          <div className="xl:w-[50%] bg-primary p-8 rounded-xl">
+            <Typography variant="body-large">
+              Thanks for reaching out! I'll get back to you as soon as possible.
+            </Typography>
+
+            <Button
+              variant="quaternary"
+              className="mt-[100%]"
+              onClick={() => setSubmitted(false)}
+            >
+              Go Back
+            </Button>
+          </div>
+        )}
       </div>
     </PageSection>
   );

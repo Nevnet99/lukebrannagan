@@ -6,7 +6,7 @@ import { Typography } from '../Typography';
 export type TInputProps = {
   label: string;
   helper?: string;
-  error?: boolean;
+  error?: string;
   id: string;
   className?: string;
   required?: boolean;
@@ -44,6 +44,11 @@ export const TextArea = ({
       {...rest}
       {...register(name, registerOptions)}
     />
+    {error && (
+      <Typography as="p" variant="body-regular" className="text-red-600">
+        This field is required
+      </Typography>
+    )}
     {helper && (
       <Typography as="p" variant="body-regular">
         {helper}

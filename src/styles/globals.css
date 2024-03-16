@@ -18,7 +18,7 @@ main {
 }
 
 *:focus {
-  @apply outline-2 shadow-md shadow-focus border-2 border-focus;
+  @apply outline-1 outline-focus shadow-md shadow-focus;
 
 }
 

@@ -19,7 +19,9 @@ export const Statement = ({ blok: { statement, cta: ctas } }: TStatement) => {
           {statement}
         </Typography>
         <Link href={cta.href.cached_url || ''}>
-          <Button variant="secondary">{cta.text}</Button>
+          <Button as="span" variant="secondary">
+            {cta.text}
+          </Button>
         </Link>
       </div>
     </PageSection>
