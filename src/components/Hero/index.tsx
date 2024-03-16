@@ -16,6 +16,9 @@ export const Hero = ({ blok }: THeroProps) => {
     <PageSection className="flex items-center flex-col border-y-0">
       <div className="scale-50 lg:scale-100">
         <Logo />
+        <Typography className="sr-only" as="h1">
+          Luke Brannagan ~ Javascript Developer
+        </Typography>
       </div>
       <div className="w-[80%] mx-auto flex flex-col lg:flex-row mt-2 lg:mt-24 justify-between">
         <div className="mb-10 lg:mb-0 lg:w-[50%]">

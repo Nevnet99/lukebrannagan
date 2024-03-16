@@ -2,6 +2,7 @@
 import { PageSection } from '@components/shared/PageSection';
 import { RichText } from '@components/shared/RichText';
 import { Typography } from '@components/shared/Typography';
+import Image from 'next/image';
 import { AboutHeroStoryblok } from '../../types/component-types-sb';
 
 export type TAboutHeroProps = {
@@ -9,16 +10,19 @@ export type TAboutHeroProps = {
 };
 export const AboutHero = ({ blok }: TAboutHeroProps) => (
   <PageSection className="flex items-center flex-col border-y-0">
-    <img
-      className="w-[80%] mx-auto drop-shadow-neo-brutalist"
-      src="/LUKE_PROFILE.JPG"
-      alt=""
-    />
+    <div className="h-[20rem] md:h-[30vw] w-[80%] mx-auto drop-shadow-neo-brutalist">
+      <Image
+        className="object-cover rounded-xl"
+        src="/LUKE_PROFILE.jpg"
+        alt="Luke"
+        fill
+      />
+    </div>
 
     <div className="flex items-center flex-col ">
       <div className="w-[80%] mx-auto flex flex-col md:flex-row mt-14 justify-between">
         <div className=" md:w-[50%]">
-          <Typography as="h1" variant="h3">
+          <Typography as="h1" variant="h4">
             {blok.title}
           </Typography>
         </div>
