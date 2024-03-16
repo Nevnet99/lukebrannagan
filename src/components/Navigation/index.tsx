@@ -12,6 +12,7 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@components/shared/Button';
 import FloatingNav from './FloatingNavigation';
 import MobileNavigation from './Mobile';
+import { useCursorStore } from '../../stores/cursor';
 
 const links = [
   { href: '/', label: 'Home' },
@@ -26,6 +27,7 @@ export const Navigation = () => {
   const { scrollY } = useScroll();
   const [showFloatingNav, setShowFloatingNav] = useState(false);
   const [showNav, setShowNav] = useState(false);
+  const { setCursorType } = useCursorStore();
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (latest > HEADER_HEIGHT) {
@@ -72,7 +74,12 @@ export const Navigation = () => {
                         className="absolute inset-0 block h-full w-full bg-tertiary rounded-full z-[101]"
                       />
                     )}
-                    <Link className="z-[102] relative" href={href}>
+                    <Link
+                      className="z-[102] relative"
+                      href={href}
+                      onMouseOver={() => setCursorType('CLICKABLE')}
+                      onMouseLeave={() => setCursorType('DEFAULT')}
+                    >
                       {label}
                     </Link>
                   </li>

@@ -10,7 +10,7 @@ export type TAboutHeroProps = {
 };
 export const AboutHero = ({ blok }: TAboutHeroProps) => (
   <PageSection className="flex items-center flex-col border-y-0">
-    <div className="h-[20rem] md:h-[30vw] w-[80%] mx-auto drop-shadow-neo-brutalist">
+    <div className="h-[20rem] md:h-[30vw] lg:h-[25vw] w-[80%] mx-auto drop-shadow-neo-brutalist">
       <Image
         className="object-cover rounded-xl"
         src="/LUKE_PROFILE.JPG"
