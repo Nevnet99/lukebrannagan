@@ -21,14 +21,14 @@ export const AboutHero = ({ blok }: TAboutHeroProps) => (
 
     <div className="flex items-center flex-col ">
       <div className="w-[80%] mx-auto flex flex-col md:flex-row mt-14 justify-between">
-        <div className=" md:w-[50%]">
+        <div className="md:w-[50%] mb-5 md:mb-0">
           <Typography as="h1" variant="h4">
             {blok.title}
           </Typography>
         </div>
 
         <div className="md:w-[45%]">
-          <div className="text-lg font-light">
+          <div>
             <RichText variant="body-large" document={blok.copy} />
           </div>
         </div>

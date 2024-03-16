@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useCursorStore } from '../../stores/cursor';
 
 const animationVariants = {
@@ -19,7 +21,8 @@ const animationVariants = {
 
 export const Cursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const { cursorType } = useCursorStore();
+  const { cursorType, setCursorType } = useCursorStore();
+  const path = usePathname();
 
   useEffect(() => {
     const setFromEvent = (e: MouseEvent) =>
@@ -30,6 +33,11 @@ export const Cursor = () => {
       window.removeEventListener('mousemove', setFromEvent);
     };
   }, []);
+
+  // ? resets the cursor after clicking an internal link and navigating to a new page
+  useEffect(() => {
+    setCursorType('DEFAULT');
+  }, [path, setCursorType]);
 
   return (
     <motion.div
