@@ -10,14 +10,6 @@ export type TAboutHeroProps = {
 };
 export const AboutHero = ({ blok }: TAboutHeroProps) => (
   <PageSection className="flex items-center flex-col border-y-0">
-    {/* <div className="relative h-[20rem] md:h-[30vw] lg:h-[25vw] w-[80%] mx-auto drop-shadow-neo-brutalist">
-      <Image
-        className="object-cover rounded-xl"
-        src="/LUKE_PROFILE.JPG"
-        alt="Luke"
-        fill
-      />
-    </div> */}
     <div className="overflow-hidden rounded-xl drop-shadow-neo-brutalist w-[80%]">
       <motion.div
         initial={{
