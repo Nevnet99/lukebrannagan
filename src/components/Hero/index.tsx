@@ -14,16 +14,16 @@ export const Hero = ({ blok }: THeroProps) => {
 
   return (
     <PageSection className="flex items-center flex-col border-y-0">
-      <div className="scale-50 md:scale-100">
+      <div className="scale-50 lg:scale-100">
         <Logo />
       </div>
-      <div className="w-[80%] mx-auto flex flex-col md:flex-row mt-36 justify-between">
-        <div className="mb-10 md:mb-0 md:w-[50%]">
+      <div className="w-[80%] mx-auto flex flex-col lg:flex-row mt-2 lg:mt-24 justify-between">
+        <div className="mb-10 lg:mb-0 lg:w-[50%]">
           <RichText document={copy1} />
         </div>
 
-        <div className="md:w-[45%]">
-          <RichText document={copy2} />
+        <div className="lg:w-[45%]">
+          <RichText variant="body-large" document={copy2} />
         </div>
       </div>
     </PageSection>

@@ -18,7 +18,7 @@ const variants = {
 };
 export const BlogCards = ({ cards }: TBlogCards) => (
   <motion.ul
-    className="flex flex-col gap-5 md:flex-row md:flex-wrap"
+    className="flex flex-col gap-10 md:flex-row md:flex-wrap"
     variants={variants}
     initial="hidden"
     animate="visible"

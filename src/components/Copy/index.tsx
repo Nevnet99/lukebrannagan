@@ -10,7 +10,7 @@ export type TCopy = {
 export const Copy = ({ blok: { copy } }: TCopy) => (
   <PageSection className="border-y-0 pb-0">
     <div className="max-w-[80%] mx-auto text-lg font-light">
-      <RichText document={copy} />
+      <RichText variant="body-large" document={copy} />
     </div>
   </PageSection>
 );

@@ -55,10 +55,7 @@ export const Button = <E extends React.ElementType = TButtonDefaultType>({
       onClick={onClick}
       {...rest}
     >
-      <Typography
-        as="span"
-        variant={size === 'small' ? 'body-regular' : 'body-large'}
-      >
+      <Typography as="span" variant="button">
         {children}
       </Typography>
     </Component>

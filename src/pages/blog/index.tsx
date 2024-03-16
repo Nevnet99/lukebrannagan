@@ -22,12 +22,11 @@ export default function Blog() {
   return (
     <PageSection className="border-t-0">
       <div className="w-[80%] mx-auto">
-        <Typography className="mb-10" as="h1" variant="h3" font="fjalla">
+        <Typography className="mb-5" as="h1" variant="h4">
           Blog & Project Posts
         </Typography>
         {!posts && (
           <div className="w-[80%] mx-auto flex gap-5">
-            <Skeleton />
             <Skeleton />
             <Skeleton />
           </div>

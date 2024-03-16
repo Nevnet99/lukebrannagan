@@ -4,8 +4,9 @@ import { Typography } from '@components/shared/Typography';
 import { RichText } from '@components/shared/RichText';
 import { Avatar } from '@components/shared/Avatar';
 import { client } from '@components/Providers/ApolloClient';
-import Link from 'next/link';
 import Image from 'next/image';
+
+import { BlogBreadcrumb } from '@components/shared/Breadcrumb';
 import { PostStoryblok } from '../../../types/component-types-sb';
 
 export type TBlogPostsPagesResponse = {
@@ -32,7 +33,8 @@ export default function BlogPost({ pageProps: { storyblok } }: TBlogPostProps) {
   return (
     <PageSection className="border-t-0">
       <div className="w-[80%] mx-auto">
-        <Typography className="mb-12" as="h1" variant="h3" font="fjalla">
+        <BlogBreadcrumb />
+        <Typography className="mb-5" as="h1" variant="h4">
           {post.content.title}
         </Typography>
         {author && (

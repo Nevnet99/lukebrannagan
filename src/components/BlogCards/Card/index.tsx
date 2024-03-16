@@ -19,18 +19,14 @@ export const Card = ({
   first_published_at: firstPublishedAt,
   slug,
 }: PostStoryblok) => (
-  <motion.li
-    key={title}
-    className="md:w-[calc(33.33%-0.85rem)]"
-    variants={variants}
-  >
+  <motion.li key={title} className="md:w-[calc(50%-2rem)]" variants={variants}>
     <Link href={`/blog/${slug}`}>
       <div>
         <Image
           className="rounded-lg"
           src={image?.filename}
           alt=""
-          width="400"
+          width="500"
           height="300"
           placeholder="blur"
           blurDataURL={image?.filename}
@@ -39,7 +35,7 @@ export const Card = ({
       <Typography className="py-2 opacity-80">
         Updated: {format(firstPublishedAt, 'do MMM yyyy p')}
       </Typography>
-      <Typography className="font-bold" as="h2" variant="body-large">
+      <Typography as="h2" variant="h6">
         {title}
       </Typography>
     </Link>

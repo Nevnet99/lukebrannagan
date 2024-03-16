@@ -26,15 +26,13 @@ const schemas = {
     },
     nodeResolvers: {
       [NODE_PARAGRAPH]: (children: ReactNode) => (
-        <Typography className="mb-5" variant="body-large">
-          {children}
-        </Typography>
+        <Typography className="mb-5">{children}</Typography>
       ),
 
       [NODE_HEADING]: (children: ReactNode, { level }: { level: TLevel }) => {
         if (level === 2) {
           return (
-            <Typography className="mt-14 mb-5 font-bold" as="h2" variant="h4">
+            <Typography className="mt-10 mb-3 font-bold" as="h2" variant="h5">
               {children}
             </Typography>
           );
@@ -42,7 +40,7 @@ const schemas = {
 
         if (level === 3) {
           return (
-            <Typography className="mt-10 mb-5 font-bold" as="h3" variant="h5">
+            <Typography className="mt-10 mb-3 font-bold" as="h3" variant="h6">
               {children}
             </Typography>
           );
@@ -51,6 +49,13 @@ const schemas = {
           <Typography variant={`h${level as TLevel}`}>{children}</Typography>
         );
       },
+    },
+  },
+  'body-large': {
+    nodeResolvers: {
+      [NODE_PARAGRAPH]: (children: ReactNode) => (
+        <Typography variant="body-large">{children}</Typography>
+      ),
     },
   },
 };

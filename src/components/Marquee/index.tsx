@@ -33,10 +33,7 @@ export const Marquee = ({
               ease: 'linear',
             }}
           >
-            <Typography
-              className=" uppercase max-w-[1440px]"
-              variant="body-large"
-            >
+            <Typography className=" uppercase max-w-[1440px]" variant="button">
               {copyString}
             </Typography>
           </motion.div>

@@ -9,11 +9,11 @@ const options = [
   'h4',
   'h5',
   'h6',
-  'p',
-  'small',
-  'span',
   'body-large',
   'body-regular',
+  'caption',
+  'overline',
+  'button',
 ];
 /**
  * Typography component for use of all typography in the app this allows for easy movement over
@@ -53,27 +53,11 @@ type Story = StoryObj<typeof meta>;
 
 export const GeneralUsage: Story = {};
 
-export const AllVariantsManrope: Story = {
+export const AllVariants: Story = {
   render: ({ children }) => (
     <div className="flex flex-col gap-8">
       {options.map((variant) => (
         <Typography key={variant} variant={variant as TAllowedTypographyTypes}>
-          {variant}: {children}
-        </Typography>
-      ))}
-    </div>
-  ),
-};
-
-export const AllVariantsFjalla: Story = {
-  render: ({ children }) => (
-    <div className="flex flex-col gap-8">
-      {options.map((variant) => (
-        <Typography
-          key={variant}
-          variant={variant as TAllowedTypographyTypes}
-          font="fjalla"
-        >
           {variant}: {children}
         </Typography>
       ))}

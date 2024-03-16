@@ -9,12 +9,8 @@ export const Card = ({ title, copy, index }: CardStoryblok) => (
       {title}
     </Typography>
     <RichText document={copy} />
-    <Typography
-      className="absolute bottom-0 left-5 drop-shadow-neo-brutalist text-primary"
-      variant="h2"
-      font="fjalla"
-    >
+    <p className="text-heading3Desktop font-fjalla absolute bottom-0 left-5 drop-shadow-neo-brutalist text-primary">
       0{index + 1}
-    </Typography>
+    </p>
   </li>
 );

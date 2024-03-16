@@ -25,6 +25,17 @@ export type TPageSectionProps<E extends React.ElementType> = {
     | 'fourCardFeature';
 };
 
+const variants = {
+  default: 'bg-white md:mx-10  py-28 border-black border-2',
+  ghost: 'bg-transparent border-none p-0',
+  marquee: 'bg-transparent border-none p-0  md:mx-10 ',
+  navigation: 'bg-white p-0  md:mx-10  border-black border-2',
+  threeCardFeature:
+    ' md:mx-10  py-28 bg-tertiary border-y-0 border-black border-2 flex flex-col items-center',
+  footer: 'bg-primary  md:mx-10  py-28 border-black border-2',
+  fourCardFeature: 'bg-tertiary  md:mx-10  py-28 border-black border-2',
+};
+
 export const PageSection = <
   E extends React.ElementType = TTypographyDefaultType,
 >({
@@ -37,24 +48,7 @@ export const PageSection = <
 
   // TODO: refactor this and find out why styles are not being overridden
   return (
-    <Component
-      className={cn(
-        variant === 'default' &&
-          'bg-white mx-5 md:mx-10 lg:mx-28 py-28 border-black border-2',
-        variant === 'ghost' && 'bg-transparent border-none p-0',
-        variant === 'marquee' &&
-          'bg-transparent border-none p-0 mx-5 md:mx-10 lg:mx-28',
-        variant === 'navigation' &&
-          'bg-white p-0 mx-5 md:mx-10 lg:mx-28 border-black border-2',
-        variant === 'threeCardFeature' &&
-          'mx-5 md:mx-10 lg:mx-28 py-28 bg-tertiary border-y-0 border-black border-2 flex flex-col items-center',
-        variant === 'footer' &&
-          'bg-primary mx-5 md:mx-10 lg:mx-28 py-28 border-black border-2',
-        variant === 'fourCardFeature' &&
-          'bg-tertiary mx-5 md:mx-10 lg:mx-28 py-28 border-black border-2',
-        className,
-      )}
-    >
+    <Component className={cn(variants[variant], className)}>
       {children}
     </Component>
   );

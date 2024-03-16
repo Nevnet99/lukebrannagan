@@ -16,7 +16,7 @@ export const ThreeCardFeature = ({
 
   return (
     <PageSection variant="threeCardFeature">
-      <ul className="flex flex-col lg:flex-row gap-5 max-w-[80%] mx-auto">
+      <ul className="flex flex-col xl:flex-row gap-5 max-w-[80%] mx-auto">
         {cards && cards.map((card) => <Card key={card._uid} {...card} />)}
       </ul>
 
