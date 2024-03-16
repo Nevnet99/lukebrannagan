@@ -10,7 +10,7 @@ export const Testimonial = ({
   const [author] = authors;
 
   return (
-    <li className="flex flex-col justify-center w-full px-[10%] text-center flex-shrink-0 mb-28 text-lg">
+    <li className="flex flex-col justify-center w-full px-[10%] text-center flex-shrink-0 text-lg">
       <div>
         <RichText document={testimonal} />
       </div>

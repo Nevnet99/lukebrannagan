@@ -25,9 +25,9 @@ export const Testimonials = ({ blok }: TTestimonials) => {
   };
 
   return (
-    <PageSection className="flex flex-col overflow-hidden pb-0 border-b-0 pt-15">
+    <PageSection className="flex flex-col overflow-hidden pb-0 border-b-0 pt-0">
       <motion.ul
-        className="flex "
+        className="flex"
         animate={{
           x: `${activeIndex * -100}%`,
           transition: {
