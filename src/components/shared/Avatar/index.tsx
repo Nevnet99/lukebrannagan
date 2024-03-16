@@ -28,10 +28,11 @@ export const Avatar = ({
     )}
   >
     {profilePicture && (
-      <div className="flex overflow-hidden rounded-full w-14 h-14  border-2 border-primary">
+      <div className="flex overflow-hidden rounded-full  min-w-14 min-h-14  border-2 border-primary">
         <Image
           src={profilePicture.filename}
           alt={profilePicture.alt || ''}
+          className="object-cover"
           width={52}
           height={52}
         />
