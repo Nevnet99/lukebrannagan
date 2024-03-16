@@ -13,7 +13,7 @@ export const AboutHero = ({ blok }: TAboutHeroProps) => (
     <div className="h-[20rem] md:h-[30vw] w-[80%] mx-auto drop-shadow-neo-brutalist">
       <Image
         className="object-cover rounded-xl"
-        src="/LUKE_PROFILE.jpg"
+        src="/LUKE_PROFILE.JPG"
         alt="Luke"
         fill
       />
