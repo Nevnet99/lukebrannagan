@@ -4,7 +4,7 @@ import React from 'react';
 import { CardStoryblok } from '../../../types/component-types-sb';
 
 export const Card = ({ title, copy, index }: CardStoryblok) => (
-  <li className="list-none relative w-full bg-base p-8 drop-shadow-neo-brutalist rounded-xl md:w-[calc(50%-10px)] min-h-[500px]">
+  <li className="list-none relative w-full bg-base p-8 drop-shadow-neo-brutalist rounded-xl md:w-[calc(50%-10px)] min-h-[500px] pb-64">
     <Typography variant="h6" className="font-bold mb-5">
       {title}
     </Typography>
