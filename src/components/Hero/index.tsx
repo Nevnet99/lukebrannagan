@@ -3,6 +3,7 @@ import { Typography } from '@components/shared/Typography';
 import React from 'react';
 import { Logo } from '@components/Logo';
 import { RichText } from '@components/shared/RichText';
+import { motion } from 'framer-motion';
 import { HeroStoryblok } from '../../types/component-types-sb';
 
 export type THeroProps = {
@@ -20,13 +21,44 @@ export const Hero = ({ blok }: THeroProps) => {
           Luke Brannagan ~ Javascript Developer
         </Typography>
       </div>
-      <div className="w-[80%] mx-auto flex flex-col lg:flex-row mt-2 lg:mt-24 justify-between">
-        <div className="mb-10 lg:mb-0 lg:w-[50%]">
+      <div className="w-[80%] mx-auto flex flex-col lg:flex-row mt-2 lg:mt-24 justify-between overflow-hidden">
+        <motion.div
+          className="mb-10 lg:mb-0 lg:w-[50%]"
+          initial={{
+            translateY: 100,
+            opacity: 0,
+          }}
+          animate={{
+            translateY: 0,
+            opacity: 1,
+          }}
+          transition={{
+            delay: 1,
+            duration: 1,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+        >
           <RichText document={copy1} />
-        </div>
+        </motion.div>
 
-        <div className="lg:w-[45%]">
-          <RichText variant="body-large" document={copy2} />
+        <div className="lg:w-[45%] overflow-hidden">
+          <motion.div
+            initial={{
+              translateY: 100,
+              opacity: 0,
+            }}
+            animate={{
+              translateY: 0,
+              opacity: 1,
+            }}
+            transition={{
+              delay: 1,
+              duration: 1,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+          >
+            <RichText variant="body-large" document={copy2} />
+          </motion.div>
         </div>
       </div>
     </PageSection>

@@ -12,7 +12,7 @@ export const Testimonial = ({
   return (
     <li className="flex flex-col justify-center w-full px-[10%] text-center flex-shrink-0 text-lg">
       <div>
-        <RichText document={testimonal} />
+        <RichText document={testimonal} variant="body-large" />
       </div>
       <Avatar className="mt-10" {...author} />
     </li>
