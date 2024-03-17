@@ -13,9 +13,9 @@ export const HalfAndHalfImage = ({ blok }: THalfAndHalfImage) => {
     <PageSection className="border-t-0 pt-10">
       <div className=" max-w-[80%] mx-auto ">
         <div className="flex flex-col md:flex-row gap-10 ">
-          <div className="w-full md:w-1/2 drop-shadow-neo-brutalist h-[30rem]">
+          <div className="relative w-full md:w-1/2 drop-shadow-neo-brutalist h-[30rem]">
             <Image
-              className="object-cover  rounded-xl"
+              className="object-cover rounded-xl"
               src={image1.filename}
               fill
               alt={image1.alt || ''}

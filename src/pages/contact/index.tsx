@@ -45,25 +45,20 @@ const Contact = () => {
   return (
     <PageSection className="border-t-0">
       <div className="max-w-[80%] mx-auto flex flex-col xl:flex-row gap-10">
-        <div className="xl:w-[50%]">
+        <div className="xl:w-[45%]">
           <Typography as="h1" variant="h5" className="mb-5">
             Contact Me
           </Typography>
 
           <Typography variant="body-large">
-            I’m currently looking for opportunities for <b>perm</b>,{' '}
-            <b>freelance</b> or <b>contract work</b>, hit me up!
+            I’m currently looking for opportunities for{' '}
+            <b>part-time freelance</b> or <b>contract work</b>, hit me up!
           </Typography>
           <br />
-          <Typography variant="body-large">
-            In specific I’m looking for <b>remote working</b>,{' '}
-            <b>an awesome culture</b>, <b>a place to grow and learn </b> and an
-            <b> interesting challenge</b>.
-          </Typography>
         </div>
         {!submitted && (
           <form
-            className="xl:w-[50%] flex flex-col bg-primary p-8 rounded-xl"
+            className="xl:w-[55%] flex flex-col bg-primary p-8 rounded-xl"
             onSubmit={handleSubmit(onSubmit)}
           >
             <Input

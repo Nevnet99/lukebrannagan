@@ -1,6 +1,6 @@
 import { PageSection } from '@components/shared/PageSection';
 import { Testimonial } from '@components/shared/Testimonial';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TestimonialsStoryblok } from '../../types/component-types-sb';
 import { useCursorStore } from '../../stores/cursor';
@@ -23,6 +23,13 @@ export const Testimonials = ({ blok }: TTestimonials) => {
   const prevSlide = () => {
     setActiveIndex((activeIndex - 1 + carouselLength) % carouselLength);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((activeIndex + 1) % carouselLength);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [activeIndex, carouselLength]);
 
   return (
     <PageSection className="flex flex-col overflow-hidden pb-0 border-b-0 pt-0">

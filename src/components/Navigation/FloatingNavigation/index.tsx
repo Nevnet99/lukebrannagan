@@ -16,7 +16,7 @@ const FloatingNav = ({ links, path }: TFloatingNav) => {
       initial={{ y: -100 }}
       animate={{ y: 50 }}
       exit={{ y: -100 }}
-      transition={{ duration: 0.2, ease: 'easeInOut' }}
+      transition={{ delay: 0.4, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className="hidden fixed z-[105] w-full md:flex justify-center "
     >
       <ul className="flex justify-center bg-base shadow-md py-2 border-primary border-2 rounded-3xl">

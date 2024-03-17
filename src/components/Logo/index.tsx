@@ -6,8 +6,8 @@ const lAnimation = {
   animate: { scale: 1, rotate: 0 },
   transition: {
     type: 'spring',
-    stiffness: 80,
-    duration: 0.4,
+    stiffness: 60,
+    duration: 0.8,
     ease: 'easeInOut',
   },
   viewport: { once: true },
@@ -18,10 +18,10 @@ const uAnimation = {
   animate: { x: 0 },
   transition: {
     type: 'spring',
-    stiffness: 80,
-    duration: 0.4,
+    stiffness: 60,
+    duration: 0.8,
     ease: 'easeInOut',
-    delay: 0.4,
+    delay: 0.8,
   },
   viewport: { once: true },
 };
@@ -31,10 +31,10 @@ const kAnimation = {
   animate: { x: 0 },
   transition: {
     type: 'spring',
-    stiffness: 80,
-    duration: 0.4,
+    stiffness: 60,
+    duration: 0.8,
     ease: 'easeInOut',
-    delay: 0.8,
+    delay: 1.6,
   },
   viewport: { once: true },
 };
@@ -44,10 +44,10 @@ const eAnimation = {
   animate: { opacity: 1, y: [50, 0, -50, 0] },
   transition: {
     type: 'spring',
-    stiffness: 80,
-    duration: 0.4,
+    stiffness: 60,
+    duration: 0.8,
     ease: 'easeInOut',
-    delay: 1.2,
+    delay: 2.4,
   },
   viewport: { once: true },
 };
