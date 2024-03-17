@@ -17,11 +17,6 @@ main {
   @apply max-w-[1440px] mx-auto;
 }
 
-*:focus {
-  @apply outline-1 outline-focus shadow-md shadow-focus;
-
-}
-
 
 
 @layer utilities {
