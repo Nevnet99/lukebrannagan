@@ -6,11 +6,11 @@
 
 
 body {
-  @apply bg-base ;
+  @apply bg-base;
 }
 
 * {
-  @apply lg:cursor-none font-manrope;
+  @apply font-manrope;
 }
 
 main {
